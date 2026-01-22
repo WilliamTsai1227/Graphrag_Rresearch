@@ -1,0 +1,226 @@
+{
+  "entities": [
+    {
+      "id": "E0000",
+      "name": "張三",
+      "entity_type": "客戶",
+      "description": "科技行業專業人士，信用評分 750，年收入 50 萬元",
+      "source_document": "customers.csv"
+    },
+    {
+      "id": "E0001",
+      "name": "李四",
+      "entity_type": "客戶",
+      "description": "製造業工作者，信用評分 680，年收入 35 萬元",
+      "source_document": "customers.csv"
+    },
+    {
+      "id": "E0002",
+      "name": "個人信用貸款",
+      "entity_type": "貸款產品",
+      "description": "無擔保貸款，利率 4.5%，期限 12-60 個月",
+      "source_document": "loan_products.csv"
+    },
+    {
+      "id": "E0003",
+      "name": "企業經營貸",
+      "entity_type": "貸款產品",
+      "description": "商業貸款，利率 5.2%，期限 12-84 個月",
+      "source_document": "loan_products.csv"
+    },
+    {
+      "id": "E0004",
+      "name": "信用貸款政策",
+      "entity_type": "政策",
+      "description": "個人信用貸款的審批標準和風險控制，最低信用評分 600",
+      "source_document": "policies.csv"
+    },
+    {
+      "id": "E0005",
+      "name": "企業貸款政策",
+      "entity_type": "政策",
+      "description": "企業貸款的審批標準，最低信用評分 650",
+      "source_document": "policies.csv"
+    },
+    {
+      "id": "E0006",
+      "name": "商業銀行",
+      "entity_type": "銀行",
+      "description": "提供各類貸款產品的商業銀行",
+      "source_document": "financial_documents.txt"
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "N0000",
+      "entity_id": "E0000",
+      "name": "張三",
+      "node_type": "客戶",
+      "description": "科技行業專業人士，信用評分 750，年收入 50 萬元",
+      "attributes": {
+        "customer_id": "C001",
+        "credit_score": 750,
+        "annual_income": 500000,
+        "industry": "科技",
+        "risk_level": "低風險"
+      },
+      "community_id": null
+    },
+    {
+      "node_id": "N0001",
+      "entity_id": "E0001",
+      "name": "李四",
+      "node_type": "客戶",
+      "description": "製造業工作者，信用評分 680，年收入 35 萬元",
+      "attributes": {
+        "customer_id": "C002",
+        "credit_score": 680,
+        "annual_income": 350000,
+        "industry": "製造",
+        "risk_level": "中風險"
+      },
+      "community_id": null
+    },
+    {
+      "node_id": "N0002",
+      "entity_id": "E0002",
+      "name": "個人信用貸款",
+      "node_type": "貸款產品",
+      "description": "無擔保貸款，利率 4.5%，期限 12-60 個月",
+      "attributes": {
+        "product_id": "P001",
+        "interest_rate": 4.5,
+        "loan_term": "12-60",
+        "min_amount": 50000,
+        "max_amount": 500000,
+        "min_credit_score": 600,
+        "risk_category": "低風險"
+      },
+      "community_id": null
+    },
+    {
+      "node_id": "N0003",
+      "entity_id": "E0003",
+      "name": "企業經營貸",
+      "node_type": "貸款產品",
+      "description": "商業貸款，利率 5.2%，期限 12-84 個月",
+      "attributes": {
+        "product_id": "P003",
+        "interest_rate": 5.2,
+        "loan_term": "12-84",
+        "min_amount": 100000,
+        "max_amount": 10000000,
+        "min_credit_score": 650,
+        "risk_category": "中風險"
+      },
+      "community_id": null
+    },
+    {
+      "node_id": "N0004",
+      "entity_id": "E0004",
+      "name": "信用貸款政策",
+      "node_type": "政策",
+      "description": "個人信用貸款的審批標準和風險控制，最低信用評分 600",
+      "attributes": {
+        "policy_id": "POL001",
+        "min_credit_score": 600,
+        "max_debt_ratio": 0.5,
+        "collateral_required": false
+      },
+      "community_id": null
+    },
+    {
+      "node_id": "N0005",
+      "entity_id": "E0005",
+      "name": "企業貸款政策",
+      "node_type": "政策",
+      "description": "企業貸款的審批標準，最低信用評分 650",
+      "attributes": {
+        "policy_id": "POL003",
+        "min_credit_score": 650,
+        "max_debt_ratio": 0.6,
+        "collateral_required": true
+      },
+      "community_id": null
+    },
+    {
+      "node_id": "N0006",
+      "entity_id": "E0006",
+      "name": "商業銀行",
+      "node_type": "銀行",
+      "description": "提供各類貸款產品的商業銀行",
+      "attributes": {
+        "bank_name": "商業銀行",
+        "total_customers": 8,
+        "total_products": 6
+      },
+      "community_id": null
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "R0000",
+      "source_node_id": "N0000",
+      "target_node_id": "N0002",
+      "relationship_type": "申請",
+      "description": "張三於 2024-01-15 申請個人信用貸款，金額 20 萬元，已批准",
+      "weight": 1.0
+    },
+    {
+      "relationship_id": "R0001",
+      "source_node_id": "N0001",
+      "target_node_id": "N0003",
+      "relationship_type": "申請",
+      "description": "李四於 2024-01-20 申請企業經營貸，金額 50 萬元，待審核",
+      "weight": 1.0
+    },
+    {
+      "relationship_id": "R0002",
+      "source_node_id": "N0006",
+      "target_node_id": "N0002",
+      "relationship_type": "提供",
+      "description": "商業銀行提供個人信用貸款產品",
+      "weight": 1.0
+    },
+    {
+      "relationship_id": "R0003",
+      "source_node_id": "N0006",
+      "target_node_id": "N0003",
+      "relationship_type": "提供",
+      "description": "商業銀行提供企業經營貸產品",
+      "weight": 1.0
+    },
+    {
+      "relationship_id": "R0004",
+      "source_node_id": "N0002",
+      "target_node_id": "N0004",
+      "relationship_type": "受限於",
+      "description": "個人信用貸款受信用貸款政策的限制",
+      "weight": 1.0
+    },
+    {
+      "relationship_id": "R0005",
+      "source_node_id": "N0003",
+      "target_node_id": "N0005",
+      "relationship_type": "受限於",
+      "description": "企業經營貸受企業貸款政策的限制",
+      "weight": 1.0
+    }
+  ],
+  "statistics": {
+    "total_entities": 7,
+    "total_nodes": 7,
+    "total_relationships": 6,
+    "entity_types": [
+      "貸款產品",
+      "客戶",
+      "政策",
+      "銀行"
+    ],
+    "relationship_types": [
+      "申請",
+      "提供",
+      "受限於"
+    ]
+  }
+}

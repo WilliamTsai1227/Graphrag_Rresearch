@@ -1,0 +1,7 @@
+policy_id,policy_name,policy_type,description,min_credit_score,max_debt_ratio,collateral_required,regulatory_requirement
+POL001,信用貸款政策,風險管理,個人信用貸款的審批標準和風險控制,600,0.5,否,銀行法第 5 條
+POL002,房屋貸款政策,抵押貸款,房屋抵押貸款的審批和管理,700,0.7,是,銀行法第 8 條
+POL003,企業貸款政策,商業貸款,企業貸款的審批標準,650,0.6,是,銀行法第 10 條
+POL004,供應鏈融資政策,商業貸款,供應鏈融資的特殊政策,680,0.65,是,銀行法第 12 條
+POL005,風險分類政策,風險管理,貸款風險分類標準,N/A,N/A,N/A,銀行法第 15 條
+POL006,監管合規政策,合規,金融監管機構的合規要求,N/A,N/A,N/A,金融監管條例第 1 條

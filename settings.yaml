@@ -1,0 +1,60 @@
+# GraphRAG 配置文件
+# 用於金融業數據的知識圖譜構建
+
+llm:
+  api_key: "${OPENAI_API_KEY}"
+  type: "openai"
+  model: "gpt-4"
+  temperature: 0.0
+  max_tokens: 4000
+
+embeddings:
+  api_key: "${OPENAI_API_KEY}"
+  type: "openai"
+  model: "text-embedding-3-small"
+
+chunks:
+  size: 1200
+  overlap: 100
+  group_by_columns: []
+
+entity_extraction:
+  prompt: "financial_entity_extraction"
+  entity_types:
+    - "客戶"
+    - "貸款產品"
+    - "銀行"
+    - "風險因素"
+    - "政策"
+    - "監管機構"
+    - "行業"
+    - "金融機構"
+
+relationships:
+  prompt: "financial_relationship_extraction"
+  relationship_types:
+    - "申請"
+    - "提供"
+    - "受限於"
+    - "影響"
+    - "有"
+    - "包含"
+    - "遵守"
+    - "符合"
+
+community_detection:
+  algorithm: "leiden"
+  max_cluster_size: 10
+  use_lcc: true
+
+summarization:
+  prompt: "financial_community_summarization"
+  max_length: 500
+
+storage:
+  type: "sqlite"
+  db_path: "./graphrag.db"
+
+cache:
+  type: "sqlite"
+  db_path: "./cache.db"
